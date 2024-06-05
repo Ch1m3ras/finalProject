@@ -1,140 +1,154 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Our Mission</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - matplotlib
+    </py-env>
 
-		<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-     	<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+	<style>
+		* {
+			margin: 0%;
+			padding: 0%;
+			font-family: 'Comic Sans MS';
+			font-size: 100%;
+			color: white;
+		}
 
-        <style>
-            * {
-				margin: 0%;
-				padding: 0%;
-				font-family: 'Comic Sans MS';
-				font-size: 100%;
-				color: white;
-			}
+		.mainpage {
+			width: 100%;
+		}
 
-            .mainpage {
-                width: 100%;
-			}
+		.titleandlogo {
+			text-align: center;
+			padding: 0px; 
+			background-color:  #83aff0	;
+		}
 
-			.titleandlogo {
-				text-align: center;
-				padding: 0px; 
-				background-color:  #83aff0	;
-			}
+		.pageselector {
+			background-color: #4779c4;
+		}
 
-			.pageselector {
-				background-color: #4779c4;
-			}
+		.pageselectorbutton {
+			padding: .1%;
+			background-color:  #4779c4;
+			border-color: #4779c4;
+		}
 
-			.pageselectorbutton {
-				padding: .1%;
-				background-color:  #4779c4;
-				border-color: #4779c4;
-			}
+		.pageselectorbutton:hover{
+			background-color: #1b2d48;
+		}
 
-			.pageselectorbutton:hover{
-				background-color: #1b2d48;
-			}
+		.body {
+			background-color:  #3c649f;
+		}
 
-            .body {
-                background-color:  #3c649f;
-            }
+		.footer {
+			background-color: #1b2d48;
+			color: white;
+		}
+		
+		table {
+			width: 100%;
+		}
 
-            .footer {
-				background-color: #1b2d48;
-				color: white;
-			}
-            
-            table {
-				width: 100%;
-			}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
 
-            a {
-				color: white;
-				text-decoration: none;
-			}
-        </style>
-    </head>
+	<div class = "titleandlogo">
+		<h1>Site Making Co.</h1>
+		<p>"We make sure your websites are the best they can be."</p>
+		<img src = "logo.png" alt = "Company Logo Image Made in MS Paint that features a geometric design of a square background, then another square roatated 45 degrees and then a star on the top of it.; 13.6 KB" width = 7.5% height = 7.5%>
+	</div>
 
-    <body>
-        <div class = "mainpage">
-           <div class = "titleandlogo">
-                <h1>Site Making Co.</h1>
-                <p>"We make sure your websites are the best they can be."</p>
-                <img src = "logo.png" alt = "Company Logo Image Made in MS Paint that features a geometric design of a square background, then another square roatated 45 degrees and then a star on the top of it.; 13.6 KB" width = 7.5% height = 7.5%>
-            </div>
+	<div class = "pageselector">
+		<table>
+			<tr>
+				<td>
+					<a href="http://homer.stuy.edu/~achen62/websiteproject/mainsite.html"><button class = "pageselectorbutton">Homepage</button></a>
+					<a href="http://homer.stuy.edu/~achen62/websiteproject/page3.html"><button class = "pageselectorbutton">Our Mission</button></a>
+					<a href="http://homer.stuy.edu/~achen62/websiteproject/page1.html"><button class = "pageselectorbutton">Prices</button></a>
+					<a href="http://homer.stuy.edu/~achen62/websiteproject/page2.html"><button class = "pageselectorbutton">Rave Reviews</button></a>
+				</td>
+				<td style = "text-align: right;">
+					<a href="http://homer.stuy.edu/~achen62/websiteproject/buypage.html"><button class = "pageselectorbutton"><img src="cart.png" alt = "Image of a shopping cart evoking the style of other websites" width = 10% height = 10%> Purchase NOW!:</button></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+    <div id="lineplot" class = "body">
+    <py-script output="lineplot">
+# Python Code Goes Here ...
 
-            <div class = "pageselector">
-				<table>
-					<tr>
-						<td>
-							<a href="http://homer.stuy.edu/~achen62/websiteproject/mainsite.html"><button class = "pageselectorbutton">Homepage</button></a>
-                			<a href="http://homer.stuy.edu/~achen62/websiteproject/page3.html"><button class = "pageselectorbutton">Our Mission</button></a>
-							<a href="http://homer.stuy.edu/~achen62/websiteproject/page1.html"><button class = "pageselectorbutton">Prices</button></a>
-							<a href="http://homer.stuy.edu/~achen62/websiteproject/page2.html"><button class = "pageselectorbutton">Rave Reviews</button></a>
-						</td>
-						<td style = "text-align: right;">
-							<a href="http://homer.stuy.edu/~achen62/websiteproject/buypage.html"><button class = "pageselectorbutton"><img src="cart.png" alt = "Image of a shopping cart evoking the style of other websites" width = 10% height = 10%>Cart:</button></a>
-						</td>
-					</tr>
-				</table>
-			</div>
+import matplotlib.pyplot as plt
+from js import XMLHttpRequest
 
-            <!-- <div class = "body">
-                <py-script>
-					#import matplotlib.pyplot as plt
+req = XMLHttpRequest.new()
+testingFile = req.open("GET", "http://homer.stuy.edu/~achen62/websiteproject/infoForPieChart.txt", False)
+req.send(None)
 
-					fontDict={"family" : "Times New Roman", "size" : 22, "weight" : "bold", "style" : "italic"}
+newFile = str(req.response).split("\n")
+countryLabels = []
+actualAmountOfSites = []
+#explodeAmounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.4, 0.4]
 
-					testingFile = open("infoForPieChart.txt")
-					countryLabels = []
-					actualAmountOfSites = []
-					explodeAmounts = [0, 0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.5, 0.5, 0.7, 0.7, 0.9, 0.9]
-					for line in testingFile:
-    					line = line.rstrip("\n")
-    					line1 = line.split(",")
-    					countryLabels.append(line1[0])
-    					actualAmountOfSites.append(line1[1])
+sum = 0
+for line in newFile:
+    line1 = line.rstrip("\r")
+    line2 = line.split(",")
+    sum = sum + int(line2[1])
+    
+for line in newFile:
+	line1 = line.rstrip("\r")
+	line2 = line.split(",")
+	if int(line2[1]) / sum >= 0.02:
+		countryLabels.append(line2[0])
+		actualAmountOfSites.append(line2[1])
 
-					plt.pie(actualAmountOfSites, labels = countryLabels, autopct = "%.1f%%", explode = explodeAmounts)
-					plt.title("Top 15 Countries In Terms Of The Amount Of Websites", fontdict={"family" : "Times New Roman", "size" : 22, "weight" : "bold", "style" : "italic"})
-					plt.show()
-				</py-script>
-            </div> -->
+fig, ax = plt.subplots()
+plt.pie(actualAmountOfSites, labels = countryLabels, autopct = "%.1f%%")
+plt.title("Top 15 Countries In Terms Of The Amount Of Websites")
+fig
+    </py-script>
 
-            <div class="footer">
-				<table style="width: 100%; border-color: transparent;">
-					<tr>
-						<td style="text-align: left; border-style: none;"><a href= mailto:"achen62@stuy.edu">Reach out to us at: achen62@stuy.edu</a></td>
-						<td style="text-align: right; border-style: none;">Call us at (212) 312-4800</td>
-					</tr>
-					<tr>
-						<td style="text-align: left; border-style: none;">Send mail to us: 345 Chambers St, New York, NY 10282</td>
-						<td style="text-align: right; border-style: none;">Fax us(if you still do that): 212-587-3874</td>
-					</tr>
-					<tr>
-						<td style="text-align: left; border-style: none;">Stuyvesant Computer Science Department</td>
-						<td style="text-align: right; border-style: none;">This website is pure satire, all quotes are libel and slander. This is simply for fun and not meant to offend. </td>
-					</tr>
-					<tr>
-						<td colspan="2" style="text-align: center; border-style: none; text-decoration: underline;"><a href="http://homer.stuy.edu/~achen62/websiteproject/mainsite.html">Back to the homepage</a></td>
-					</tr>
-				</table>
+	</div>
 
-				<br>
-				
-				<table style="width: 100%; border-color: transparent;">
-					<tr>
-						<td style="text-align: center; border-style: none;">Created and &copy; Febuary 16th, 2024 by Alexander Chen(Period 9)</td>
-					</tr>
-					<tr>
-						<td style="text-align: center; border-style: none; font-size: 85%;" >Legal Disclaimers: All images and videos are &copy; and &#174; by their original copyright holders. We do not claim ownership of any of the content shown in the site. This site is not for commercial use and is within definition of <a href="https://www.copyright.gov/fair-use/" style="text-decoration: underline;">Fair Use in Section 107</a> of the Copyright Act.</td>
-					</tr>
-				</table>
-			</div>
-        </div>
-    </body>
+	<div class="footer">
+		<table style="width: 100%; border-color: transparent;">
+			<tr>
+				<td style="text-align: left; border-style: none;"><a href= mailto:"achen62@stuy.edu">Reach out to us at: achen62@stuy.edu</a></td>
+				<td style="text-align: right; border-style: none;">Call us at (212) 312-4800</td>
+			</tr>
+			<tr>
+				<td style="text-align: left; border-style: none;">Send mail to us: 345 Chambers St, New York, NY 10282</td>
+				<td style="text-align: right; border-style: none;">Fax us(if you still do that): 212-587-3874</td>
+			</tr>
+			<tr>
+				<td style="text-align: left; border-style: none;">Stuyvesant Computer Science Department</td>
+				<td style="text-align: right; border-style: none;">This website is pure satire, all quotes are libel and slander. This is simply for fun and not meant to offend. </td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center; border-style: none; text-decoration: underline;"><a href="http://homer.stuy.edu/~achen62/websiteproject/mainsite.html">Back to the homepage</a></td>
+			</tr>
+		</table>
+
+		<br>
+		
+		<table style="width: 100%; border-color: transparent;">
+			<tr>
+				<td style="text-align: center; border-style: none;">Created and &copy; Febuary 16th, 2024 by Alexander Chen(Period 9) Cocreated by Maif Biswas(Also Pd 9)</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; border-style: none; font-size: 85%;" >Legal Disclaimers: All images and videos are &copy; and &#174; by their original copyright holders. We do not claim ownership of any of the content shown in the site. This site is not for commercial use and is within definition of <a href="https://www.copyright.gov/fair-use/" style="text-decoration: underline;">Fair Use in Section 107</a> of the Copyright Act.</td>
+			</tr>
+		</table>
+	</div>
+</body>
 </html>
