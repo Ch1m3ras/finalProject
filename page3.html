@@ -84,7 +84,10 @@
 		</table>
 	</div>
     <div id="lineplot" class = "body">
-    <py-script output="lineplot">
+		<table>
+			<tr>
+				<td>
+    				<py-script output="lineplot">
 # Python Code Goes Here ...
 
 import matplotlib.pyplot as plt
@@ -116,8 +119,15 @@ fig, ax = plt.subplots()
 plt.pie(actualAmountOfSites, labels = countryLabels, autopct = "%.1f%%")
 plt.title("Top 15 Countries In Terms Of The Amount Of Websites")
 fig
-    </py-script>
-
+    				</py-script>
+				</td>
+				<td style="text-align: center;">
+					<p>
+						Our mission is to make website creation easy for everyone. Learning a language takes way too long, especially the extensive HTML with all of its intricacies and complexity and trying to learn Python to add increased functionality to the website would take even longer for most. Errors take hours to fix with annoying error messages that don't quite explain themselves when found and you'll eventually come to a mess of spagetti code where everything is held together by duct tape and a prayer. 
+					</p>
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<div class="footer">
