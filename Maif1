@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyScript Form Example</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <h1>Simple Form</h1>
+    <form id="myForm">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="questions">Any questions?</label><br>
+        <textarea id="questions" name="questions" rows="4" cols="50"></textarea><br><br>
+
+        <label for="subscribe">Would you like to subscribe to our newsletters?</label>
+        <input type="checkbox" id="subscribe" name="subscribe"><br><br>
+
+        <label for="bestWebsite">Are we the best website-making website ever?</label><br>
+        <input type="text" id="bestWebsite" name="bestWebsite"><br><br>
+
+        <label for="goal1">What is one of our goals?</label><br>
+        <input type="text" id="goal1" name="goal1"><br><br>
+
+        <label for="goal2">What is another one of our goals?</label><br>
+        <input type="text" id="goal2" name="goal2"><br><br>
+
+        <label for="dominatingCountry">Which country dominates when it comes to the amount of websites?</label><br>
+        <input type="text" id="dominatingCountry" name="dominatingCountry"><br><br>
+
+        <input type="button" value="Submit" onclick="submit_form()">
+    </form>
+
+    <div id="output"></div>
+
+    <py-script>
+        from js import document, console
+        import csv
+        import io
+
+        def submit_form():
+            email = document.getElementById("email").value
+            questions = document.getElementById("questions").value
+            subscribe = document.getElementById("subscribe").checked
+            best_website = document.getElementById("bestWebsite").value
+            goal1 = document.getElementById("goal1").value
+            goal2 = document.getElementById("goal2").value
+            dominating_country = document.getElementById("dominatingCountry").value
+
+            if not email:
+                output = "Email is required!"
+                document.getElementById("output").innerHTML = output
+                return
+
+            subscription_status = "Yes" if subscribe else "No"
+            output = (
+                f"Email: {email}<br>"
+                f"Questions: {questions}<br>"
+                f"Subscribe: {subscription_status}<br>"
+                f"Best Website: {best_website}<br>"
+                f"Goal 1: {goal1}<br>"
+                f"Goal 2: {goal2}<br>"
+                f"Dominating Country: {dominating_country}"
+            )
+            document.getElementById("output").innerHTML = output
+
+            csv_output = io.StringIO()
+            writer = csv.writer(csv_output)
+            writer.writerow([
+                "Email", "Questions", "Subscribe", "Best Website", 
+                "Goal 1", "Goal 2", "Dominating Country"
+            ])
+            writer.writerow([
+                email, questions, subscription_status, best_website, 
+                goal1, goal2, dominating_country
+            ])
+            csv_content = csv_output.getvalue()
+            csv_output.close()
+
+            blob = Blob.new([csv_content], { "type": "text/csv" })
+            url = URL.createObjectURL(blob)
+            link = document.createElement("a")
+            link.href = url
+            link.download = "form_responses.csv"
+            link.click()
+            URL.revokeObjectURL(url)
+    </py-script>
+</body>
+</html>
