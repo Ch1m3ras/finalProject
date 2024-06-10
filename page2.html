@@ -2,6 +2,11 @@
 <html>
     <head>
 		<title>Reviews</title>
+		<link href="https://pyscript.net/alpha/pyscript.css"/>
+		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+		<py-env>
+			- random
+		</py-env>
         <style>
 			* {
 				margin: 0%;
@@ -107,6 +112,62 @@
 				<br>
 				<p><img src="onestar.png" alt="A picture of 1 star akin to a star you would see in an amazon review 10.6 KB" style="width: 1%; height: 1%;">   anactualhuman4000 <br> Horrible website and company, they don't provide anything you need, the websites they make is terrible, they lie about their hosting servives with most of it being overpriced, and when you reach out for customer support and complaints, they never get back to you and leave you on hold for hours. Even worse, half the reviews are botted and they don't represent what the actual company should be reviewed. The worst site making company ever, I wouldn't reccomend to my worst enemy. 1/5 stars.</p>
 				<br>
+				<h2 style="font-size: larger;">Review of the day:</h2>
+				<py-script>
+import random
+from js import XMLHttpRequest
+
+req = XMLHttpRequest.new()
+testingFile = req.open("GET", "http://homer.stuy.edu/~achen62/websiteproject/fileToStoreReviews.txt", False)
+req.send(None)
+
+newFile = str(req.response).split("\n")
+user = []
+rating = []
+comment = []
+for line in newFile:
+    line1 = line.split(",")
+    user.append(line1[0])
+    rating.append(line1[1])
+    comment.append(line1[2])
+
+num = random.randrange(len(user))
+if rating[num] == "5star":
+    print("5 stars")
+elif rating[num] == "4star":
+    print("4 stars")
+elif rating[num] == "3star":
+    print("3 stars")
+elif rating[num] == "2star":
+    print("2 stars")
+else:
+    print("1 star")
+print(user[num] + ": " + comment[num])
+				</py-script>
+				<br>
+				<h2 style="font-size: larger;">Write your own Reviews:</h2>
+				<form method="post" action="formStuff.py">
+					<form action = "/cgi-bin/formStuff.py" method = "get">
+					<label for = "user">Username:</label>
+					<br>
+					<input type = "text" id = "user" name = "user" value = "Place Your Username Here" style = "color: black;">
+					<br>
+					<label for = "rating">Rating:</label>
+					<br>
+					<select name = "rating" id = "rating" style="color: black;">
+						<option value = "1star" style="color: black;">1 Star</option>
+						<option value = "2star" style="color: black;">2 Star</option>
+						<option value = "3star" style="color: black;">3 Star</option>
+						<option value = "4star" style="color: black;">4 Star</option>
+						<option value = "5star" style="color: black;">5 Star</option>
+					</select>
+					<br>
+					<label for = "optionalComments">Optional Additional Comments. Please note that use of commas will cut off your message. I am sorry for the inconvience.</label>
+					<br>
+					<input type = "text" id = "optionalComments" name = "optionalComments" value = "Other Additional Comments" style = "color: black; width: 30%; height: 100%;">
+					<br>
+					<input type = "submit" value = "Submit" style="color: black;" id="btn">
+				</form>
 			</div>
 
 			<div class="footer">

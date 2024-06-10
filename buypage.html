@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Buying Things</title>
-        <style>
-            * {
+	<head>
+		<title>Buy Stuff</title>
+		<link href="https://pyscript.net/alpha/pyscript.css"/>
+		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+		<style>
+			* {
 				margin: 0%;
 				padding: 0%;
 				font-family: 'Comic Sans MS';
 				font-size: 100%;
 				color: white;
 			}
-
-            .mainpage {
+			.mainpage {
                 width: 100%;
 			}
 
@@ -35,39 +36,54 @@
 				background-color: #1b2d48;
 			}
 
-            .body {
-                background-color:  #3c649f;
-            }
+			.body {
+				background-color:  #3c649f;
+			}
+				
+			table {
+				width: 100%;
+				
+			}
 
-            .footer {
+			.poorwebsiteexample1 {
+				width: 100%;
+				height: 100%;
+			}
+
+			.footer {
 				background-color: #1b2d48;
 				color: white;
 			}
 
 			h1 {
 				font-size: 300%;
+				color: white;
+				text-decoration: underline;
+			}
+			
+			h2 {
+				text-align: center;
+				color: white;
 				text-decoration: underline;
 			}
 
-            table {
-				width: 100%;
-			}
-            
-            a {
+			a {
 				color: white;
 				text-decoration: none;
 			}
-        </style>
-    </head>
-    <body>
-        <div class = "mainpage">
-           <div class = "titleandlogo">
-                <h1>Site Making Co.</h1>
-                <p>"We make sure your websites are the best they can be."</p>
-                <img src = "logo.png" alt = "Company Logo Image Made in MS Paint that features a geometric design of a square background, then another square roatated 45 degrees and then a star on the top of it.; 13.6 KB" width = 7.5% height = 7.5%>
-            </div>
+			
+		</style>
+	</head>
 
-           <div class = "pageselector">
+	<body>
+		<div class="mainpage">
+			<div class = "titleandlogo">
+				<h1>Site Making Co.</h1>
+				<p>"We make sure your websites are the best they can be."</p>
+				<img src = "logo.png" alt = "Company Logo Image Made in MS Paint that features a geometric design of a square background, then another square roatated 45 degrees and then a star on the top of it.; 13.6 KB" width = 7.5% height = 7.5%>
+			</div>
+		
+			<div class = "pageselector">
 				<table>
 					<tr>
 						<td>
@@ -77,17 +93,100 @@
 							<a href="http://homer.stuy.edu/~achen62/websiteproject/page2.html"><button class = "pageselectorbutton">Rave Reviews</button></a>
 						</td>
 						<td style = "text-align: right;">
-							<a href="http://homer.stuy.edu/~achen62/websiteproject/buypage.html"><button class = "pageselectorbutton" style = "text-align: center;"><img src="cart.png" alt = "Image of a shopping cart evoking the style of other websites" width = 10% height = 10%> Purchase NOW!:</button></a>
+							<a href="http://homer.stuy.edu/~achen62/websiteproject/buypage.html"><button class = "pageselectorbutton"><img src="cart.png" alt = "Image of a shopping cart evoking the style of other websites" width = 10% height = 10%> Purchase NOW!:</button></a>
 						</td>
 					</tr>
 				</table>
 			</div>
 
-            <div class = "body">
-                <p>Test 1 2 Test 1 2 This will become a form eventually</p>
-            </div>
+			<div class = "body">
+				<h1>Form</h1>
+				<p>Hold on just a second there, if you want to buy something from our website, we need to make sure that you actually paid attention to our website by asking these questions. It won't take long, simply a few minutes or two. Good luck. If you don't get a perfect score, you won't be able to access the actual buypage.</p>
+				<br>
+				<form onsubmit="return false">
+					<label for="bestWebsite">Are we the best website-making website ever?</label>
+					<br>
+					<select name = "bestWebsite" id = "bestWebsite" style="color: black;">
+						<option value = "Yes" style="color: black;">Yes</option>
+						<option value = "No" style="color: black;">No</option>
+						<option value = "Maybe" style="color: black;">Maybe</option>
+						<option value = "Refuse" style="color: black;">I refuse to confirm or deny that statement.</option>
+					</select>
 
-            <div class="footer">
+					<br>
+					<br>
+
+					<label for="goal1">What is one of our goals?</label><br>
+					<p>A. Making it easier to make a website</p>
+					<p>B. Increasing access to website making resources</p>
+					<p>C. Giving afforable prices so all can recieve the service</p>
+					<p>D. All of the above</p>
+					<select id="goal1" name="goal1" style = "color:black">
+						<option value = "A" style="color: black;">Choice A</option>
+						<option value = "B" style="color: black;">Choice B</option>
+						<option value = "C" style="color: black;">Choice C</option>
+						<option value = "D" style="color: black;">Choice D</option>
+					</select>
+
+					<br>
+					<br>
+
+					<label for = "overallRating">What is our overall rating</label>
+					<br>
+					<select id="overallRating" name="overallRating" style = "color:black">
+						<option value = "A" style="color: black;">98 OVR</option>
+						<option value = "B" style="color: black;">4.8 stars</option>
+						<option value = "C" style="color: black;">4.4 stars</option>
+						<option value = "D" style="color: black;">3.2 stars</option>
+					</select>
+
+					<br>
+					<br>
+
+					<label for="dominatingCountry">Which country dominates when it comes to the amount of websites?</label><br>
+					<p>A. USA</p>
+					<p>B. Great Britian or UK</p>
+					<p>C. Soloman Islands</p>
+					<p>D. Russia</p>
+					<select id="dominatingCountry" name="dominatingCountry" style="color: black;">
+						<option value = "USA" style="color: black;">The USA</option>
+						<option value = "UK" style="color: black;">The UK</option>
+						<option value = "Islands" style="color: black;">The Solomon Islands</option>
+						<option value = "Russia" style="color: black;">Russia</option>
+					</select>
+					<br>
+					<input pys-onClick="submitForm" type="submit" id="btn-form" value="Submit" style="color: black;">
+				</form>
+				<br>
+				<p id = "output"></p>
+				<py-Script>
+def submitForm(*args, **kwargs):
+    sum = 0
+    resultOutput = Element('output')
+    if Element('bestWebsite').value == "Yes":
+        sum = sum + 1
+    if Element('goal1').value == "D":
+        sum = sum + 1
+    if Element('overallRating').value == "B":
+        sum = sum + 1
+    if Element('dominatingCountry').value == "USA":
+        sum = sum + 1
+    if sum == 1:
+        resultOutput.write(f"You got a 1/4 pretty okay. However you're not going to get the ability to buy the product.")
+    elif sum == 2:
+        resultOutput.write(f"You got a 2/4 pretty okay. However you're not going to get the ability to buy the product.")
+    elif sum == 3:
+        resultOutput.write(f"You got a 3/4, nice job. However you're not going to get the ability to buy the product.")
+    elif sum == 4:
+        resultOutput.write(f"4/4, perfect score! Congrats! However, selling things is against DOE rules to the best of my knowledge so... sorry. Perhaps when I'm able to file imcome tax will you get your chance to buy this.")
+    else:
+        resultOutput.write(f"0/4.... You probably should have payed more attention. At this rate, you'll never going to get the ability to buy the product.")
+    
+
+				</py-Script>
+			</div>
+
+			<div class="footer">
 				<table style="width: 100%; border-color: transparent;">
 					<tr>
 						<td style="text-align: left; border-style: none;"><a href= mailto:"achen62@stuy.edu">Reach out to us at: achen62@stuy.edu</a></td>
@@ -117,6 +216,7 @@
 					</tr>
 				</table>
 			</div>
-        </div>
-    </body>
+
+		</div>
+	</body>
 </html>

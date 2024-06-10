@@ -1,32 +1,42 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-    <py-env>
-        - matplotlib
-    </py-env>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <!-- <link href="stylePage5.css" rel="stylesheet" /> -->
+    <!-- <script type="py" src="projectPage4.py"></script> -->
+    <title>Improvement Form</title>
 </head>
 <body>
-    <h1>Matplotlib</h1>
-    <py-script> print("My Lineplot")</py-script>
-    <div id="lineplot"></div>
-    <py-script output="lineplot">
-# Python Code Goes Here ...
-import matplotlib.pyplot as plt
-fig, ax = plt.subplots()
-year_1 = [2016, 2017, 2018, 2019, 2020, 2021]
-population_1 = [42, 43, 45, 47, 48, 50]
-year_2 = [2016, 2017, 2018, 2019, 2020, 2021]
-population_2 = [43, 43, 44, 44, 45, 45]
-plt.plot(year_1, population_1, marker='o', linestyle='--', color='g', label='Country 1')
-plt.plot(year_2, population_2,  marker='d', linestyle='-', color='r', label='Country 2')
-plt.xlabel('Year')
-plt.ylabel('Population (M)')
-plt.title('Year vs Population')
-plt.legend(loc='lower right')
-fig
-    </py-script>
+    <header>
+        <h1 class="headerText" id="headerTextBigger">William Chen</h1>
+        <h2 class="headerText" id="headerTextSmaller">Just a guy making his way through life.</h2>
+    </header>
+    <table class="navRowTable" style="display: flex; margin: auto 5%;">
+        <tr>
+            <td class="navRowTd"><a href="projectPage1.html">Home Page</a></td>
+            <td class="navRowTd"><a href="projectPage2.html">About Me</a></td>
+            <td class="navRowTd"><a href="projectPage3.html">Rocketry</a></td>
+            <td class="navRowTd"><a href="projectPage4.html">TF2 Quiz</a></td>
+        </tr>
+        <form method="post" action="http://homer.stuy.edu/~achen62/websiteproject/test.py">
+        <tr>
+            <td colspan="4"><h1>Welcome! Got any feedback to submit? Do it here.</h1></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label>Name: <input type="text" name="nameInput"></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label>Feedback (Keep it short): <input type="text" id="textThing" size="100" name="feedbackInput"></label><br>
+                    <input type="submit" value="Submit" id="btn">
+            </td>
+        </tr>
+    </form>
+        <tr>
+            <td colspan="4" class="footer"><p>If you find any problems, <a href="mailto:wchen60@stuy.edu">Send me an email!</a> or email wchen60@stuy.edu. Hosted on Stuyvesant Servers located at 345 Chambers Street 10282 operated by the Comp Sci department (212-312-4800 or 212-587-3874 fax).<br>Copyright: William Chen 2024. Date of creation: February 14 2024<br><a href="projectPage1.html">Back to Home</a></p></td>
+        </tr>
+    </table>
 </body>
 </html>
